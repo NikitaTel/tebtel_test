@@ -113,7 +113,6 @@
     },
     "content_for_index": [
       "slideshow",
-      "featured-collections",
       "featured-products",
       "image-content"
     ]
@@ -233,7 +232,6 @@
       },
       "content_for_index": [
         "slideshow",
-        "featured-collections",
         "featured-products",
         "image-content"
       ]

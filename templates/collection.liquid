@@ -2,7 +2,7 @@
 
 <div class="page-width">
 
-  <header class="grid medium-up--grid--table section-header small--text-center">
+  {% comment %}<header class="grid medium-up--grid--table section-header small--text-center">
     <div class="grid__item medium-up--one-half section-header__item">
       <h1 class="section-header__title">
         {{ collection.title }}
@@ -20,7 +20,7 @@
     <div class="grid__item medium-up--one-half medium-up--text-right section-header__item">
       {% section 'collection-filters' %}
     </div>
-  </header>
+  </header>{% endcomment %}
 
   <div class="grid grid--no-gutters grid--uniform">
 
@@ -96,3 +96,5 @@
 </div>
 
 {% endpaginate %}
+
+{% section 'promoting-message' %}

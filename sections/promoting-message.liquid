@@ -1,0 +1,25 @@
+<div id="promoting-section">
+    <div class="promoting-message">
+        <button class="promoting-message__close" onclick="document.getElementById('shopify-section-promoting-message').style.display='none'">close</button>
+        {{ section.settings.text }}
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Promoting message",
+        "settings": [
+            {
+                "id": "text-box",
+                "type": "text",
+                "label": "Heading",
+                "default": "Promoting title"
+            },
+            {
+                "id": "text",
+                "type": "richtext",
+                "label": "Add custom text below",
+                "default": "<p>Promoting message</p>"
+            }
+        ]
+    }
+{% endschema %}

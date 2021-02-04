@@ -27,6 +27,10 @@
   </script>
 
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+
+  {{ 'slick.css' | asset_url | stylesheet_tag }}
+  {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
 
   <script>
     window.theme = window.theme || {};
@@ -64,6 +68,12 @@
   {% endif %}
 
   <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
+  <script
+          src="https://code.jquery.com/jquery-3.4.1.js"
+          integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+          crossorigin="anonymous">
+  </script>
 
   {{ content_for_header }}
 </head>
@@ -117,5 +127,18 @@
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
     <li id="a11y-slideshow-info">{{- 'homepage.hero.navigation_instructions' | t -}}</li>
   </ul>
+
+<div class="modal-popup-wrapper">
+
+  <div class="modal-popup">
+    <button class="modal-popup-close">close</button>
+    <h1>Popup Heading</h1>
+    <p>
+      Popup content
+    </p>
+  </div>
+</div>
+
+  <script src="{{ 'custom.js' | asset_url }}" async="async"></script>
 </body>
 </html>
