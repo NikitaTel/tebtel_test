@@ -1,0 +1,30 @@
+<div class="modal-popup-wrapper">
+    <div class="modal-popup">
+        <button class="modal-popup-close">close</button>
+        <h1>{{ section.settings.modal-popup-heading }}</h1>
+        <p>
+            {{ section.settings.modal-popup-content }}
+        </p>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "custom-popup",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Modal popup heading",
+        "id": "modal-popup-heading",
+        "default": "Popup content"
+
+      },
+        {
+            "type": "text",
+            "label": "Modal popup content",
+            "id": "modal-popup-content",
+            "default": "Popup Heading"
+        }
+    ]
+}
+{% endschema %}

@@ -1823,5 +1823,38 @@
         }
       }
     ]
+  },
+  {
+    "name": "Product badges",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Badges are presented in order of priority (lowest to highest)"
+      },
+      {
+        "type": "checkbox",
+        "label": "Sale badge",
+        "id": "sale_badge",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "label": "Free shipping badge",
+        "id": "free_shipping_badge",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "label": "New product badge",
+        "id": "new_product_badge",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "label": "Closeout",
+        "id": "closeout_badge",
+        "default": false
+      }
+    ]
   }
 ]

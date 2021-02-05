@@ -1,0 +1,54 @@
+<h1 class="recently-added__title">{{ section.settings.new-arrivals-heading }}</h1>
+<div class="recently-added__products">
+    {% assign products = collections.all.products | sort: 'published_at' | reverse %}
+    {% assign products_amount = section.settings.new-arrivals-range %}
+    {% assign last_product = products | first %}
+
+    {% assign published = last_product.published_at | date: '%Y%m%d'  %}
+    {% assign current = "now" | date: '%Y%m%d'  %}
+    {% assign days_ago =  current | minus: published | plus: 0 %}
+
+    {% if days_ago > 10 %}
+        <h2> No recent products</h2>
+    {% endif %}
+
+    {% if products.size == 0 %}
+        <h2>There are no products in the catalog</h2>
+    {% else %}
+        {% for product in products limit: products_amount %}
+            {% assign published = product.published_at | date: '%Y%m%d'  %}
+            {% assign current = "now" | date: '%Y%m%d'  %}
+            {% assign days_ago =  current | minus: published | plus: 0 %}
+
+            {% if days_ago < 10 %}
+                <div class="recently-added__product">
+                    <h2>{{ product.title }}</h2>
+                    <img src="{{ product | img_url : '1x1' | replace: '_1x1.', '_300x.' }}" alt="{{ product.title }} image">
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% schema %}
+{
+    "name": "new-arrivals-widget",
+    "settings": [
+      {
+            "type": "range",
+            "id": "new-arrivals-range",
+            "label": "Amount of shown products",
+            "max": 10,
+            "min": 3,
+            "step": 1,
+            "default": 5
+      },
+      {
+            "type": "text",
+            "id": "new-arrivals-heading",
+            "label": "Section heading",
+            "default": "New Arrivals"
+      }
+    ]
+}
+{% endschema %}

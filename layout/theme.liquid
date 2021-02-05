@@ -128,16 +128,7 @@
     <li id="a11y-slideshow-info">{{- 'homepage.hero.navigation_instructions' | t -}}</li>
   </ul>
 
-<div class="modal-popup-wrapper">
-
-  <div class="modal-popup">
-    <button class="modal-popup-close">close</button>
-    <h1>Popup Heading</h1>
-    <p>
-      Popup content
-    </p>
-  </div>
-</div>
+{% section 'custom-popup' %}
 
   <script src="{{ 'custom.js' | asset_url }}" async="async"></script>
 </body>

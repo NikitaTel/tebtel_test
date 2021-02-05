@@ -1,9 +1,25 @@
 <div id="promoting-section">
     <div class="promoting-message">
-        <button class="promoting-message__close" onclick="document.getElementById('shopify-section-promoting-message').style.display='none'">close</button>
+        <button class="promoting-message__close" onclick="document.getElementById('shopify-section-promoting-message').style.display='none'" >close</button>
         {{ section.settings.text }}
     </div>
 </div>
+
+<script>
+    let promote = document.getElementById('shopify-section-promoting-message'),
+        header = document.querySelector('.site-header');
+
+    if(getComputedStyle(promote).display==="block") {
+        header.style.paddingTop='30px';
+    }
+
+    promote.addEventListener('click', ()=> {
+        if(getComputedStyle(promote).display==="none") {
+            header.style.paddingTop='0';
+        }
+    });
+
+</script>
 {% schema %}
     {
         "name": "Promoting message",

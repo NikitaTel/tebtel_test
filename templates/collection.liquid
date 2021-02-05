@@ -25,7 +25,54 @@
   <div class="grid grid--no-gutters grid--uniform">
 
     {% for product in collection.products %}
+
+
+
       <div class="grid__item small--one-half medium-up--one-fifth">
+          {% assign found = false %}
+          {% if settings.closeout_badge == true %}
+
+            {% for tag in product.tags %}
+              {% if tag contains 'closeout' %}
+                <span class="grid__item-badge closeout">Closeout</span>
+                {% assign found = true %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          {% if settings.new_product_badge == true and found == false %}
+
+            {% for tag in product.tags %}
+              {% if tag contains 'new' %}
+                <span class="grid__item-badge new">New</span>
+                {% assign found = true %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+          {% if settings.free_shipping_badge == true and found == false %}
+
+            {% for tag in product.tags %}
+              {% if tag contains 'free_shipping' %}
+                <span class="grid__item-badge free-shipping">Free Shipping</span>
+                {% assign found = true %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+          {% if settings.sale_badge == true and found == false %}
+
+            {% for tag in product.tags %}
+              {% if tag contains 'sale' %}
+                <span class="grid__item-badge sale">Sale</span>
+              {% endif %}
+            {% endfor %}
+
+          {% endif %}
+
+
+
+
+
         {% include 'product-card', product: product %}
       </div>
     {% else %}
